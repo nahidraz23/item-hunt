@@ -1,13 +1,13 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = () => {
 
     const navLinks = (
 
         <div className='flex gap-6 text-lg font-semibold'>
-           <NavLink to={'/'}><li>Home</li></NavLink>
-           <NavLink to={'/products'}><li>Products</li></NavLink>
+            <NavLink to={'/'}><li>Home</li></NavLink>
+            <NavLink to={'/products'}><li>Products</li></NavLink>
         </div>
     )
 
@@ -47,7 +47,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Button</a>
+                <Link to={'/dashboard'}><button className='btn'>Dashboard</button></Link>
             </div>
         </div>
     );
