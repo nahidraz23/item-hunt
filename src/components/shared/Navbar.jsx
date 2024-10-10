@@ -4,10 +4,8 @@ import { Link, NavLink } from 'react-router-dom';
 const Navbar = () => {
 
     const navLinks = (
-
         <div className='flex gap-6 text-lg font-semibold'>
-            <NavLink to={'/'}><li>Home</li></NavLink>
-            {/* <NavLink to={'/products'}><li>Products</li></NavLink> */}
+            <NavLink to={'/'}><li>Products</li></NavLink>
         </div>
     )
 
