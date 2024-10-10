@@ -7,12 +7,12 @@ const Navbar = () => {
 
         <div className='flex gap-6 text-lg font-semibold'>
             <NavLink to={'/'}><li>Home</li></NavLink>
-            <NavLink to={'/products'}><li>Products</li></NavLink>
+            {/* <NavLink to={'/products'}><li>Products</li></NavLink> */}
         </div>
     )
 
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar container mx-auto shadow-xl md:mb-5">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -37,7 +37,7 @@ const Navbar = () => {
                         }
                     </ul>
                 </div>
-                <a className="text-2xl font-bold">Item Hunt</a>
+                <a className="text-2xl font-bold">ItemHunt</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">

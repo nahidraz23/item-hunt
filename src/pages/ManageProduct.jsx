@@ -1,16 +1,13 @@
-import React, { useState } from 'react';
+import { useContext } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
-import { useLoaderData } from 'react-router-dom';
+import { FaTrash } from 'react-icons/fa';
+import { FaPencil } from 'react-icons/fa6';
+import { Link } from 'react-router-dom';
+import { Context } from '../providers/ContextProvider';
 
 const ManageProduct = () => {
 
-    const loadedProduct = useLoaderData();
-    const [produts, setProducts] = useState([]);
-
-    // handle update product 
-    const hadnleUpdate = id => {
-        console.log(id)
-    }
+    const {products} = useContext(Context);
 
     // handle delete product
     const handleDelete = id => {
@@ -26,10 +23,8 @@ const ManageProduct = () => {
                     toast.error("Something went wrong!")
                 }
             })
-
-        console.log(id)
     }
-    // console.log(loadedProduct)
+    console.log(products)
 
     return (
         <div>
@@ -48,11 +43,12 @@ const ManageProduct = () => {
                             <th>Name</th>
                             <th>Price</th>
                             <th>Category</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            loadedProduct.products.map((product) => <tr>
+                            products.map((product) => <tr key={product.id}>
                                 <th>{product?.id}</th>
                                 <th>{product.sku}</th>
                                 <td>
@@ -77,8 +73,10 @@ const ManageProduct = () => {
                                 </td>
                                 <td>{product.category}</td>
                                 <th className='flex gap-3'>
-                                    <button onClick={() => hadnleUpdate(product.id)} className="btn btn-xs">Update</button>
-                                    <button onClick={() => handleDelete(product.id)} className="btn btn-xs btn-warning">Delete</button>
+                                    <Link to={`/manageproduct/${product.id}`}>
+                                        <button onClick={() => handleDelete(product.id)} className="btn btn-xs btn-success text-white"><FaPencil></FaPencil>Update</button>
+                                    </Link>
+                                    <button onClick={() => handleDelete(product.id)} className="btn btn-xs btn-error text-white"><FaTrash></FaTrash>Delete</button>
                                 </th>
                             </tr>)
                         }

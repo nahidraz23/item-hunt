@@ -8,7 +8,9 @@ import { QRCodeCanvas } from 'qrcode.react';
 import ReviewCard from '../ReviewCard';
 
 const ProductDetails = () => {
-    const loadedProduct = useLoaderData()
+
+    const loadedProduct = useLoaderData();
+    
     const {
         title,
         images,
@@ -34,8 +36,6 @@ const ProductDetails = () => {
         console.log(newRating)
     }
 
-    console.log(loadedProduct)
-
     return (
         <>
             <div className='flex flex-col md:flex-row justify-center gap-10 items-center'>
@@ -47,7 +47,7 @@ const ProductDetails = () => {
                         <div>
                             <h1 className='uppercase font-medium opacity-60'>{brand}</h1>
                             <h2 className='text-2xl font-bold'>{title}</h2>
-                            <div className='flex gap-2 font-semibold text-sm'>
+                            <div className='flex gap-2 font-semibold text-sm opacity-70'>
                                 <h5>SKU:</h5>
                                 <h5>#{sku}</h5>
                             </div>
@@ -111,6 +111,7 @@ const ProductDetails = () => {
                     </div>
                 </div>
             </div>
+            {/* Detailed Information */}
             <div className='space-y-10'>
                 <h1 className='text-center text-4xl font-semibold'>
                     Detailed Information
@@ -169,12 +170,12 @@ const ProductDetails = () => {
                                         {/* row 1 */}
                                         <tr>
                                             <th>Created At</th>
-                                            <td>{meta?.createdAt}</td>
+                                            <td>{meta?.createdAt.slice(0,10)}</td>
                                         </tr>
                                         {/* row 2 */}
                                         <tr>
                                             <th>Updated At</th>
-                                            <td>{meta?.updatedAt}</td>
+                                            <td>{meta?.updatedAt.slice(0, 10)}</td>
                                         </tr>
                                         {/* row 3 */}
                                         <tr>
@@ -188,6 +189,7 @@ const ProductDetails = () => {
                     </div>
                 </div>
             </div>
+            {/* Reviews */}
             <div className='flex flex-col justify-center space-y-10 py-4'>
                 <h1 className='text-center text-4xl font-semibold'>
                     Reviews

@@ -4,6 +4,7 @@ import Home from "../pages/Home";
 import Products from "../pages/Products";
 import ProductDetails from "../components/Products/ProductDetails";
 import ManageProduct from "../pages/ManageProduct";
+import UpdateProduct from "../pages/UpdateProduct";
 
 export const router = createBrowserRouter([
     {
@@ -12,10 +13,6 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home></Home>
-            },
-            {
-                path: '/products',
                 element: <Products></Products>
             },
             {
@@ -25,8 +22,12 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/manageproduct',
-                element: <ManageProduct></ManageProduct>,
-                loader: () => fetch('https://dummyjson.com/products')
+                element: <ManageProduct></ManageProduct>
+            },
+            {
+                path: '/manageproduct/:id',
+                element: <UpdateProduct></UpdateProduct>,
+                loader: ({params}) => fetch(`https://dummyjson.com/products/${params.id}`)
             }
         ]
     }
