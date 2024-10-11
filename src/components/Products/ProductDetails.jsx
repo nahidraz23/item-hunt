@@ -10,7 +10,7 @@ import ReviewCard from '../ReviewCard';
 const ProductDetails = () => {
 
     const loadedProduct = useLoaderData();
-    
+
     const {
         title,
         images,
@@ -40,7 +40,7 @@ const ProductDetails = () => {
         <>
             <div className='flex flex-col md:flex-row justify-center gap-10 items-center'>
                 <div>
-                    <img src={images} alt='' className='w-[491px] h-[655px]' />
+                    <img src={images[0]} alt='' className='w-[491px] h-[655px]' />
                 </div>
                 <div className='flex flex-col items-center md:justify-around w-[491px] h-[655px] gap-3'>
                     <div className='flex flex-col gap-3'>

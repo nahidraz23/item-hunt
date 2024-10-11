@@ -73,11 +73,11 @@ const ManageProduct = () => {
                                     <span className="badge badge-ghost badge-sm">{product.availabilityStatus}</span>
                                 </td>
                                 <td>{product.category}</td>
-                                <th className='flex gap-3'>
+                                <th className='flex flex-col md:flex-row gap-3'>
                                     <Link to={`/manageproduct/${product.id}`}>
-                                        <button onClick={() => handleDelete(product.id)} className="btn btn-xs btn-success text-white"><FaPencil></FaPencil>Update</button>
+                                        <button className="btn btn-success text-white"><FaPencil></FaPencil>Update</button>
                                     </Link>
-                                    <button onClick={() => handleDelete(product.id)} className="btn btn-xs btn-error text-white"><FaTrash></FaTrash>Delete</button>
+                                    <button onClick={() => handleDelete(product.id)} className="btn btn-error text-white"><FaTrash></FaTrash>Delete</button>
                                 </th>
                             </tr>)
                         }

@@ -1,11 +1,36 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import ProductCard from '../components/Products/ProductCard';
 import { Context } from '../providers/ContextProvider';
 
 const Products = () => {
     const [searchText, setSearchText] = useState("");
-    const { products, setProducts } = useContext(Context);
+    const { setLoading } = useContext(Context);
+    const [products, setProducts] = useState([])
     const [loadedProduct, setLoadedProduct] = useState(products);
+    const [checked, setChecked] = useState(false);
+
+    console.log(checked)
+
+    useEffect(() => {
+        fetch('https://dummyjson.com/products')
+            .then(res => res.json())
+            .then(data => {
+                setProducts(data?.products)
+                setLoading(false)
+            })
+    }, [])
+
+    useEffect(() =>{
+        const sortByPrice = async () => {
+            fetch(`https://dummyjson.com/products?sortBy=price&order=${checked ? 'asc' : 'desc'}`)
+            .then(res => res.json())
+            .then(data => {
+                setProducts(data?.products)
+                setLoading(false)
+            })
+        }
+        sortByPrice()
+    },[checked])
 
     const handleSearch = e => {
         const search = e.target.value.toLowerCase();
@@ -20,12 +45,15 @@ const Products = () => {
         setProducts(filteredProduct)
     }
 
-
     return (
         <>
             <div className='grid grid-cols-1 md:grid-cols-12 container mx-auto md:gap-6'>
                 <div className='col-span-3 md:mt-4 border-2 rounded-lg max-h-96'>
                     <h1 className='text-center text-2xl font-semibold border-b-2 py-2 '>Filter</h1>
+                    <div className='p-10 flex items-center gap-2'>
+                        <input onChange={() => setChecked(!checked)} type="checkbox" className="toggle" />
+                        <p className='text-xl'>Sort by price</p>
+                    </div>
                 </div>
                 <div className='col-span-9'>
                     <div className='md:my-4'>

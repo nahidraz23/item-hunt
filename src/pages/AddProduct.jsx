@@ -68,15 +68,13 @@ const AddProduct = () => {
                 toast.error("Something went wrong!")
             }
           })
-
-        // console.log(product)
     }
     
     return (
         <div className='py-5'>
             <h1 className='my-4 text-center text-3xl font-bold'>Add Product</h1>
             <form onSubmit={handleAddProduct} className='w-full'>
-                <div className='w-full flex gap-4'>
+                <div className='w-full flex flex-col md:flex-row gap-4'>
                     <label className="form-control w-full">
                         <div className="label">
                             <span className="label-text">Title</span>
@@ -91,7 +89,7 @@ const AddProduct = () => {
                     </label>
                 </div>
 
-                <div className='w-full flex gap-4'>
+                <div className='w-full flex flex-col md:flex-row gap-4'>
                     <label className="form-control w-full ">
                         <div className="label">
                             <span className="label-text">Price</span>
@@ -106,7 +104,7 @@ const AddProduct = () => {
                     </label>
                 </div>
 
-                <div className='w-full flex gap-4'>
+                <div className='w-full flex flex-col md:flex-row gap-4'>
                     <label className="form-control w-full ">
                         <div className="label">
                             <span className="label-text">Brand</span>
@@ -121,7 +119,7 @@ const AddProduct = () => {
                     </label>
                 </div>
 
-                <div className='w-full flex gap-4'>
+                <div className='w-full flex flex-col md:flex-row gap-4'>
                     <label className="form-control w-full ">
                         <div className="label">
                             <span className="label-text">Tags(Separated by comma)</span>
@@ -135,7 +133,7 @@ const AddProduct = () => {
                         <input name='sku' type="text" placeholder="Product SKU" className="input input-bordered w-full " />
                     </label>
                 </div>
-                <div className='w-full flex gap-4'>
+                <div className='w-full flex flex-col md:flex-row gap-4'>
                     <label className="form-control w-full ">
                         <div className="label">
                             <span className="label-text">Weight</span>
@@ -150,7 +148,7 @@ const AddProduct = () => {
                     </label>
                 </div>
 
-                <div className='w-full flex gap-4'>
+                <div className='w-full flex flex-col md:flex-row gap-4'>
                     <label className="form-control w-full ">
                         <div className="label">
                             <span className="label-text">Minimum Order Quantity</span>
@@ -164,7 +162,7 @@ const AddProduct = () => {
                         <input name='warrantyInformation' type="text" placeholder="Warranty Information" className="input input-bordered w-full " />
                     </label>
                 </div>
-                <div className='w-full flex gap-4'>
+                <div className='w-full flex flex-col md:flex-row gap-4'>
                     <label className="form-control w-full ">
                         <div className="label">
                             <span className="label-text">Return Policy</span>
@@ -178,7 +176,7 @@ const AddProduct = () => {
                         <input name='availabilityStatus' type="text" placeholder="Availability Status" className="input input-bordered w-full " />
                     </label>
                 </div>
-                <div className='w-full flex gap-4'>
+                <div className='w-full flex flex-col md:flex-row gap-4'>
                     <label className="form-control w-full">
                         <div className="label">
                             <span className="label-text">Image URL</span>
@@ -186,12 +184,12 @@ const AddProduct = () => {
                         <input name='images' type="text" placeholder="Image URL" className="input input-bordered w-full" />
                     </label>
                 </div>
-                <div className='w-full flex gap-4'>
+                <div className='w-full flex flex-col md:flex-row gap-4'>
                     <label className="form-control w-full">
                         <div className="label">
                             <span className="label-text">Dimension</span>
                         </div>
-                        <div className='flex gap-2 w-full'>
+                        <div className='flex flex-col md:flex-row gap-2 w-full'>
                             <div className='w-full'>
                                 <div className="label">
                                     <span className="label-text">width</span>
@@ -214,7 +212,7 @@ const AddProduct = () => {
                         </div>
                     </label>
                 </div>
-                <div className='w-full flex gap-4'>
+                <div className='w-full flex flex-col md:flex-row gap-4'>
                     <label className="form-control w-full">
                         <div className="label">
                             <span className="label-text">Description</span>

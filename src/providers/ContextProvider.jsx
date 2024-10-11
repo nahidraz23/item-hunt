@@ -5,7 +5,6 @@ export const Context = createContext(null)
 const ContextProvider = ({ children }) => {
 
     const [loading, setLoading] = useState(true);
-
     const [products, setProducts] = useState([])
 
     useEffect(() => {
@@ -28,6 +27,7 @@ const ContextProvider = ({ children }) => {
     const contextData = {
         products,
         setProducts,
+        setLoading,
     }
 
     return (
