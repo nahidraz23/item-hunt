@@ -8,9 +8,7 @@ const Products = () => {
     const [products, setProducts] = useState([])
     const [loadedProduct, setLoadedProduct] = useState(products);
     const [checked, setChecked] = useState(false);
-
-    console.log(checked)
-
+    
     useEffect(() => {
         fetch('https://dummyjson.com/products')
             .then(res => res.json())

@@ -73,7 +73,7 @@ const AddProduct = () => {
     return (
         <div className='py-5'>
             <h1 className='my-4 text-center text-3xl font-bold'>Add Product</h1>
-            <form onSubmit={handleAddProduct} className='w-full'>
+            <form onSubmit={handleAddProduct} className='w-full p-4'>
                 <div className='w-full flex flex-col md:flex-row gap-4'>
                     <label className="form-control w-full">
                         <div className="label">

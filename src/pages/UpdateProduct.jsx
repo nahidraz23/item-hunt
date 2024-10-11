@@ -73,8 +73,8 @@ const UpdateProduct = () => {
     return (
         <div className='py-5'>
             <h1 className='my-4 text-center text-3xl font-bold'>Update Product : {product.title}</h1>
-            <form onSubmit={handleUpdate} className='w-full'>
-                <div className='w-full flex gap-4'>
+            <form onSubmit={handleUpdate} className='w-full p-4'>
+                <div className='w-full flex flex-col md:flex-row gap-4'>
                     <label className="form-control w-full">
                         <div className="label">
                             <span className="label-text">Title</span>
@@ -89,7 +89,7 @@ const UpdateProduct = () => {
                     </label>
                 </div>
 
-                <div className='w-full flex gap-4'>
+                <div className='w-full flex flex-col md:flex-row gap-4'>
                     <label className="form-control w-full ">
                         <div className="label">
                             <span className="label-text">Price</span>
@@ -104,7 +104,7 @@ const UpdateProduct = () => {
                     </label>
                 </div>
 
-                <div className='w-full flex gap-4'>
+                <div className='w-full flex flex-col md:flex-row gap-4'>
                     <label className="form-control w-full ">
                         <div className="label">
                             <span className="label-text">Brand</span>
@@ -119,7 +119,7 @@ const UpdateProduct = () => {
                     </label>
                 </div>
 
-                <div className='w-full flex gap-4'>
+                <div className='w-full flex flex-col md:flex-row gap-4'>
                     <label className="form-control w-full ">
                         <div className="label">
                             <span className="label-text">Tags</span>
@@ -133,7 +133,7 @@ const UpdateProduct = () => {
                         <input defaultValue={product.sku} name='sku' type="text" placeholder={product.sku} className="input input-bordered w-full " />
                     </label>
                 </div>
-                <div className='w-full flex gap-4'>
+                <div className='w-full flex flex-col md:flex-row gap-4'>
                     <label className="form-control w-full ">
                         <div className="label">
                             <span className="label-text">Weight</span>
@@ -148,7 +148,7 @@ const UpdateProduct = () => {
                     </label>
                 </div>
 
-                <div className='w-full flex gap-4'>
+                <div className='w-full flex flex-col md:flex-row gap-4'>
                     <label className="form-control w-full ">
                         <div className="label">
                             <span className="label-text">Minimum Quantity</span>
@@ -162,7 +162,7 @@ const UpdateProduct = () => {
                         <input defaultValue={product.warrantyInformation} name='warrantyInformation' type="text" placeholder={product.warrantyInformation} className="input input-bordered w-full " />
                     </label>
                 </div>
-                <div className='w-full flex gap-4'>
+                <div className='w-full flex flex-col md:flex-row gap-4'>
                     <label className="form-control w-full ">
                         <div className="label">
                             <span className="label-text">Return Policy</span>
@@ -176,7 +176,7 @@ const UpdateProduct = () => {
                         <input defaultValue={product.availabilityStatus} name='availabilityStatus' type="text" placeholder={product.availabilityStatus} className="input input-bordered w-full " />
                     </label>
                 </div>
-                <div className='w-full flex gap-4'>
+                <div className='w-full flex flex-col md:flex-row gap-4'>
                     <label className="form-control w-full">
                         <div className="label">
                             <span className="label-text">Image URL</span>
@@ -184,12 +184,12 @@ const UpdateProduct = () => {
                         <input defaultValue={product.images} name='images' type="text" placeholder={product.images} className="input input-bordered w-full" />
                     </label>
                 </div>
-                <div className='w-full flex gap-4'>
+                <div className='w-full flex flex-col md:flex-row gap-4'>
                     <label className="form-control w-full">
                         <div className="label">
                             <span className="label-text">Dimension</span>
                         </div>
-                        <div className='flex gap-2 w-full'>
+                        <div className='flex flex-col md:flex-row gap-2 w-full'>
                             <div className='w-full'>
                                 <div className="label">
                                     <span className="label-text">width</span>
@@ -212,7 +212,7 @@ const UpdateProduct = () => {
                         </div>
                     </label>
                 </div>
-                <div className='w-full flex gap-4'>
+                <div className='w-full flex flex-col md:flex-row gap-4'>
                     <label className="form-control w-full">
                         <div className="label">
                             <span className="label-text">Description</span>
