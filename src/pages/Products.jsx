@@ -52,9 +52,9 @@ const Products = () => {
     return (
         <>
             <div className='grid grid-cols-1 md:grid-cols-12 container mx-auto md:gap-6'>
-                <div className='col-span-3 md:mt-4 border-2 rounded-lg max-h-96'>
-                    <h1 className='text-center text-2xl font-semibold border-b-2 py-2 '>Filter</h1>
-                    <div className='p-10 flex items-center gap-2'>
+                <div className='col-span-3 md:mt-4 rounded-lg max-h-96'>
+                    <h1 className='text-center text-2xl font-semibold border-b-2 border-black py-2 '>Filter</h1>
+                    <div className='flex justify-center items-center gap-2 py-5 mx-auto'>
                         <input onChange={() => setChecked(!checked)} type="checkbox" className="toggle" />
                         <p className='text-xl'>Sort by price</p>
                     </div>

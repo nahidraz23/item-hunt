@@ -5,7 +5,7 @@ const Navbar = () => {
 
     const navLinks = (
         <div className='flex gap-6 text-lg font-semibold'>
-            <NavLink to={'/'}><li>Products</li></NavLink>
+            <NavLink to={'/'} className={({isActive}) => isActive ? 'border-b-2 border-black' : ''}><li>Products</li></NavLink>
         </div>
     )
 
@@ -35,7 +35,7 @@ const Navbar = () => {
                         }
                     </ul>
                 </div>
-                <a className="text-2xl font-bold">ItemHunt</a>
+                <Link href='/' className="text-2xl font-bold">ItemHunt</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -45,7 +45,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link to={'/manageproduct'}><button className='btn'>Manage Product</button></Link>
+                <Link to={'/manageproduct'}><button className='btn btn-outline'>Manage Product</button></Link>
             </div>
         </div>
     );

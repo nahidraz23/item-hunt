@@ -75,9 +75,9 @@ const ManageProduct = () => {
                                 <td>{product.category}</td>
                                 <th className='flex flex-col md:flex-row gap-3'>
                                     <Link to={`/manageproduct/${product.id}`}>
-                                        <button className="btn btn-success text-white"><FaPencil></FaPencil>Update</button>
+                                        <button className="btn btn-outline text-green-700 hover:text-green-600"><FaPencil></FaPencil>Update</button>
                                     </Link>
-                                    <button onClick={() => handleDelete(product.id)} className="btn btn-error text-white"><FaTrash></FaTrash>Delete</button>
+                                    <button onClick={() => handleDelete(product.id)} className="btn btn-outline text-red-600 hover:text-red-600"><FaTrash></FaTrash>Delete</button>
                                 </th>
                             </tr>)
                         }
