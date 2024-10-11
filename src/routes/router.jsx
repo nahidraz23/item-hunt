@@ -18,7 +18,7 @@ export const router = createBrowserRouter([
             {
                 path: '/product/:id',
                 element: <ProductDetails></ProductDetails>,
-                loader: ({params}) => fetch(`https://dummyjson.com/products/${params.id}`)
+                loader: async ({params}) => await fetch(`https://dummyjson.com/products/${params.id}`)
             },
             {
                 path: '/manageproduct',
@@ -27,7 +27,7 @@ export const router = createBrowserRouter([
             {
                 path: '/manageproduct/:id',
                 element: <UpdateProduct></UpdateProduct>,
-                loader: ({params}) => fetch(`https://dummyjson.com/products/${params.id}`)
+                loader: async ({params}) => await fetch(`https://dummyjson.com/products/${params.id}`)
             },
             {
                 path: '/addproduct',
