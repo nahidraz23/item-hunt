@@ -5,15 +5,18 @@ export const Context = createContext(null)
 const ContextProvider = ({ children }) => {
 
     const [loading, setLoading] = useState(true);
-    const [products, setProducts] = useState([])
+    const [loadedProduct, setLoadedProducts] = useState([])
 
     useEffect(() => {
-        fetch('https://dummyjson.com/products')
-            .then(res => res.json())
-            .then(data => {
-                setProducts(data?.products)
-                setLoading(false)
-            })
+        const loadData = async () => {
+            await fetch('https://dummyjson.com/products')
+                .then(res => res.json())
+                .then(data => {
+                    setLoadedProducts(data?.products)
+                    setLoading(false)
+                })
+        }
+        loadData()
     }, [])
 
     if (loading) {
@@ -25,8 +28,7 @@ const ContextProvider = ({ children }) => {
     }
 
     const contextData = {
-        products,
-        setProducts,
+        loadedProduct,
         setLoading,
     }
 

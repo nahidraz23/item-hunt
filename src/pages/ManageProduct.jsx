@@ -7,11 +7,11 @@ import { Context } from '../providers/ContextProvider';
 
 const ManageProduct = () => {
 
-    const { products } = useContext(Context);
+    const { loadedProduct } = useContext(Context);
 
     // handle delete product
-    const handleDelete = id => {
-        fetch(`https://dummyjson.com/products/${id}`, {
+    const handleDelete = async id => {
+        await fetch(`https://dummyjson.com/products/${id}`, {
             method: 'DELETE',
         })
             .then(res => res.json())
@@ -49,7 +49,7 @@ const ManageProduct = () => {
                     </thead>
                     <tbody>
                         {
-                            products.map((product) => <tr key={product.id}>
+                            loadedProduct.map((product) => <tr key={product.id}>
                                 <th>{product?.id}</th>
                                 <th>{product?.sku}</th>
                                 <td>

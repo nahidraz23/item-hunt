@@ -6,9 +6,9 @@ const Products = () => {
     const [searchText, setSearchText] = useState("");
     const { setLoading } = useContext(Context);
     const [products, setProducts] = useState([])
-    const [loadedProduct, setLoadedProduct] = useState(products);
+    const { loadedProduct } = useContext(Context);
     const [checked, setChecked] = useState(false);
-    
+
     useEffect(() => {
         fetch('https://dummyjson.com/products')
             .then(res => res.json())
@@ -18,30 +18,36 @@ const Products = () => {
             })
     }, [])
 
-    useEffect(() =>{
-        const sortByPrice = async () => {
-            fetch(`https://dummyjson.com/products?sortBy=price&order=${checked ? 'asc' : 'desc'}`)
-            .then(res => res.json())
-            .then(data => {
-                setProducts(data?.products)
-                setLoading(false)
-            })
-        }
-        sortByPrice()
-    },[checked])
+    useEffect(() => {
+        if (!searchText) return;
 
-    const handleSearch = e => {
+        const serachedProduct = async () => {
+            await fetch(`https://dummyjson.com/products/search?q=${searchText}`)
+                .then(res => res.json())
+                .then(data => {
+                    setProducts(data.products)
+                });
+        }
+        serachedProduct();
+    }, [searchText])
+
+
+    const handleSearch = (e) => {
         const search = e.target.value.toLowerCase();
         setSearchText(search);
-
-        if (!searchText) {
-            return setProducts(products)
-        }
-
-        const filteredProduct = loadedProduct.filter((product) => product.title.toLowerCase().includes(search))
-
-        setProducts(filteredProduct)
     }
+
+    useEffect(() => {
+        const sortByPrice = async () => {
+            await fetch(`https://dummyjson.com/products?sortBy=price&order=${checked ? 'asc' : 'desc'}`)
+                .then(res => res.json())
+                .then(data => {
+                    setProducts(data?.products)
+                    setLoading(false)
+                })
+        }
+        sortByPrice()
+    }, [checked])
 
     return (
         <>
