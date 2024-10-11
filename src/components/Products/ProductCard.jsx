@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaDollarSign } from 'react-icons/fa';
+import { FaDollarSign, FaEye } from 'react-icons/fa';
 import ReactStars from "react-rating-stars-component";
 import { Link } from 'react-router-dom';
 
@@ -12,7 +12,7 @@ const ProductCard = ({ item }) => {
       };
 
     return (
-        <div className="card bg-base-100 max-w-96 shadow-xl hover:shadow-green-100 hover:scale-105">
+        <div className="card bg-base-100 max-w-96 shadow-xl hover:border-2 border-black hover:scale-105">
             <figure>
                 <img
                     src={images[0]}
@@ -37,7 +37,7 @@ const ProductCard = ({ item }) => {
                         value={rating}
                     />
                 </div>
-                <Link to={`/product/${id}`}><button className='btn btn-outline w-full'>View Details</button></Link>
+                <Link to={`/product/${id}`}><button className='btn btn-outline w-full'><FaEye></FaEye> View Details</button></Link>
             </div>
         </div>
     );

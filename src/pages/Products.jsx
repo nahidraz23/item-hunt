@@ -75,7 +75,7 @@ const Products = () => {
                             </svg>
                         </label>
                     </div>
-                    <div className='grid grid-cols-1 md:grid-cols-3 justify-items-center gap-14 mb-10'>
+                    <div className='grid grid-cols-1 md:grid-cols-3 justify-items-center gap-14 mb-10 md:py-5'>
                         {
                             products.map((item, index) => <ProductCard key={index} item={item}></ProductCard>)
                         }

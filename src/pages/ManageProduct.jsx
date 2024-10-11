@@ -4,6 +4,7 @@ import { FaTrash } from 'react-icons/fa';
 import { FaPencil } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
 import { Context } from '../providers/ContextProvider';
+import { MdPlaylistAdd } from "react-icons/md";
 
 const ManageProduct = () => {
 
@@ -30,7 +31,8 @@ const ManageProduct = () => {
             <h1 className='text-3xl font-bold mt-4 mb-10 text-center'>Manage Products</h1>
             <div className='flex justify-center'>
                 <Link to={'/addproduct'}>
-                    <button className='btn'>Add Product</button>
+                    <button className='btn btn-outline text-blue-600'>
+                    <MdPlaylistAdd />Add Product</button>
                 </Link>
             </div>
             <div className="overflow-x-auto">

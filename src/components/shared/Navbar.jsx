@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { IoSettingsOutline } from "react-icons/io5";
 
 const Navbar = () => {
 
@@ -10,7 +11,7 @@ const Navbar = () => {
     )
 
     return (
-        <div className="navbar container mx-auto shadow-xl md:mb-5">
+        <div className="navbar md:px-10 shadow-xl md:mb-5">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -45,7 +46,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link to={'/manageproduct'}><button className='btn btn-outline'>Manage Product</button></Link>
+                <Link to={'/manageproduct'}><button className='btn btn-outline'><IoSettingsOutline /> Manage Product</button></Link>
             </div>
         </div>
     );
