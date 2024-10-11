@@ -26,7 +26,8 @@ const ContextProvider = ({ children }) => {
     }
 
     const contextData = {
-        products
+        products,
+        setProducts,
     }
 
     return (

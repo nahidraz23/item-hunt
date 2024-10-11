@@ -1,21 +1,36 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import ProductCard from '../components/Products/ProductCard';
 import { Context } from '../providers/ContextProvider';
 
 const Products = () => {
+    const [searchText, setSearchText] = useState("");
+    const { products, setProducts } = useContext(Context);
+    const [loadedProduct, setLoadedProduct] = useState(products);
 
-    const  {products} = useContext(Context);
+    const handleSearch = e => {
+        const search = e.target.value.toLowerCase();
+        setSearchText(search);
+
+        if (!searchText) {
+            return setProducts(products)
+        }
+
+        const filteredProduct = loadedProduct.filter((product) => product.title.toLowerCase().includes(search))
+
+        setProducts(filteredProduct)
+    }
+
 
     return (
         <>
             <div className='grid grid-cols-1 md:grid-cols-12 container mx-auto md:gap-6'>
-                <div className='col-span-3 md:mt-4 border-2 max-h-96'>
-                    <h1 className='text-center text-2xl font-semibold border-b-2'>Filter</h1>
+                <div className='col-span-3 md:mt-4 border-2 rounded-lg max-h-96'>
+                    <h1 className='text-center text-2xl font-semibold border-b-2 py-2 '>Filter</h1>
                 </div>
                 <div className='col-span-9'>
                     <div className='md:my-4'>
                         <label className="input input-bordered flex items-center gap-2">
-                            <input type="text" className="grow" placeholder="Search" />
+                            <input onChange={handleSearch} type="text" className="grow" placeholder="Search" />
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 16 16"

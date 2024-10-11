@@ -7,7 +7,7 @@ import { Context } from '../providers/ContextProvider';
 
 const ManageProduct = () => {
 
-    const {products} = useContext(Context);
+    const { products } = useContext(Context);
 
     // handle delete product
     const handleDelete = id => {
@@ -24,13 +24,14 @@ const ManageProduct = () => {
                 }
             })
     }
-    console.log(products)
 
     return (
         <div>
             <h1 className='text-3xl font-bold mt-4 mb-10 text-center'>Manage Products</h1>
             <div className='flex justify-center'>
-                <button className='btn'>Add Product</button>
+                <Link to={'/addproduct'}>
+                    <button className='btn'>Add Product</button>
+                </Link>
             </div>
             <div className="overflow-x-auto">
                 <table className="table">
@@ -50,12 +51,12 @@ const ManageProduct = () => {
                         {
                             products.map((product) => <tr key={product.id}>
                                 <th>{product?.id}</th>
-                                <th>{product.sku}</th>
+                                <th>{product?.sku}</th>
                                 <td>
                                     <div className="avatar">
                                         <div className="mask mask-squircle h-12 w-12">
                                             <img
-                                                src={product.images}
+                                                src={product.images[0]}
                                                 alt="Avatar Tailwind CSS Component" />
                                         </div>
                                     </div>

@@ -4,6 +4,7 @@ import Products from "../pages/Products";
 import ProductDetails from "../components/Products/ProductDetails";
 import ManageProduct from "../pages/ManageProduct";
 import UpdateProduct from "../pages/UpdateProduct";
+import AddProduct from "../pages/AddProduct";
 
 export const router = createBrowserRouter([
     {
@@ -27,7 +28,12 @@ export const router = createBrowserRouter([
                 path: '/manageproduct/:id',
                 element: <UpdateProduct></UpdateProduct>,
                 loader: ({params}) => fetch(`https://dummyjson.com/products/${params.id}`)
+            },
+            {
+                path: '/addproduct',
+                element: <AddProduct></AddProduct>
             }
+
         ]
     }
 ])
