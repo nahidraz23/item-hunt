@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useLoaderData } from 'react-router-dom'
 import ReactStars from 'react-rating-stars-component'
 import { MdProductionQuantityLimits } from 'react-icons/md'
@@ -10,6 +10,27 @@ import ReviewCard from '../ReviewCard';
 const ProductDetails = () => {
 
     const loadedProduct = useLoaderData();
+    // const counter = 60;
+
+    const [hours, setHours] = useState(5);
+    const [minutes, setMinutes] = useState(12);
+    const [seconds, setSeconds] = useState(60);
+
+    useEffect(() => {
+        const countdownInterval = setInterval(() => {
+            if (seconds > 0) {
+                setSeconds(seconds - 1);
+            } else if (minutes > 0) {
+                setMinutes(minutes - 1);
+                setSeconds(59);
+            } else if (hours > 0) {
+                setHours(hours - 1);
+                setMinutes(59);
+            }
+        }, 1000);
+
+        return () => clearInterval(countdownInterval);
+    }, [hours, minutes, seconds]);
 
     const {
         title,
@@ -75,6 +96,14 @@ const ProductDetails = () => {
                                 {
                                     tags.map(tag => <p className='badge badge-outline'>{tag}</p>)
                                 }
+                            </div>
+                            <div className='flex justify-between items-center text-red-400 text-xl font-bold py-2'>
+                                <h1>Hurry up! Sale ends in:</h1>
+                                <div className="countdown font-mono text-2xl ">
+                                    <span style={{ "--value": hours }}></span>h 
+                                    {" "}<span style={{ "--value": minutes }}></span>m
+                                    <span style={{ "--value": seconds }}></span>s
+                                </div>
                             </div>
                             <div className='flex items-center gap-1'>
                                 <MdProductionQuantityLimits />
@@ -201,7 +230,7 @@ const ProductDetails = () => {
                         }
                     </div>
                 </div>
-            </div>
+            </div >
         </>
     )
 }
