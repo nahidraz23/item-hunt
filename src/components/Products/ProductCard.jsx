@@ -12,7 +12,7 @@ const ProductCard = ({ item }) => {
       };
 
     return (
-        <div className="card bg-base-100 max-w-96 shadow-xl hover:border-2 border-black hover:scale-105">
+        <div className="card bg-base-100 max-w-96 shadow-xl hover:shadow-slate-400">
             <figure>
                 <img
                     src={images[0]}
